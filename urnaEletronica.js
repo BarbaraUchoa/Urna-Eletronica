@@ -1,51 +1,75 @@
-
-
-// declaração das variáveis
-let candidato1 = parseInt (prompt('candidato1'));
-let candidato2 = parseInt(prompt('candidato2'));
-let candidato3 = parseInt(prompt('candidato3'));
-let candidatobranco = parseInt(prompt('candidatobranco'));
-let candidatonulo = parseInt(prompt('candidatonulo'));
-
-switch (opçao) {
-
-    case 1:
-        console.log('Opção é 1');
-        break;
-    case 2:
-        console.log('Opção é 2');
-        break;
-    case 3:
-        console.log('Opção é 3');
-        break;
-    case 4:
-        console.log('Opção é Branco');
-        break;
-    case 5:
-        console.log('Opção é Nulo');
-        break; 
-}
-
-
 function urnaEletronica() {
 
-
-let opcao;
-let contador = 0;
-
-do {
-   
-   
-    opcao = parseInt(prompt('Digite a opção'));
-    console.log('Repetição',contador);
-    contador++;
+    // declaração das variáveis
+    let opcao;
+    let contador = 0;
+    
+    let nome1;
+    let nome2;
+    let nome3;
+    nome1 = prompt('Digite o nome do candidato');
+    nome2= prompt('Digite o nome do candidato');
+    nome3 = prompt('Digite o nome do candidato');
         
+
+    let candidato1 = 0;
+    let candidato2 = 0;
+    let candidato3 = 0;
+    let votobranco = 0;
+    let votonulo = 0;
+
+    do {
+
+        opcao = parseInt(prompt('Digite a opção'));
         
- }while (opcao !==0); 
+        console.log('Repetição');
+        contador++;
 
 
-    contador--;
-    console.log('Contagem:',contador);
+        if (opcao == 1) {
 
+            console.log('Opção  de voto é o candidato',nome1);
+            candidato1++;
+
+        } else if (opcao == 2) {
+            console.log('Opção de voto é o candidato', nome2);
+            candidato2++;
+
+        } else if (opcao == 3) {
+            console.log('Opção de voto é o candidato',nome3);
+            candidato3++;
+
+        } else if (opcao == 4) {
+            console.log('Opção  do voto é  em Branco');
+            votobranco++;
+
+        } else if (opcao == 5) {
+            console.log('Opção de voto é Nulo');
+            votonulo++;
+        }
+
+    } while (opcao !== 0);
+    
+    contador = contador - 1;
+    console.log('Contagem:', contador);
+    console.log('Este é o total de votos para o candidato ', nome1,':', candidato1);
+    console.log('Este é o total de votos para o candidato ', nome2,':',candidato2);
+    console.log('Este é o total de votos para o candidato ', nome3,':',candidato3);
+    console.log('Este é o total de votos para o Voto Branco', votobranco);
+    console.log('Este é o total de votos para o Voto Nulo', votonulo);
+
+    if (candidato1 > candidato2 && candidato1 > candidato3) {
+        console.log('O ganhador é o ',nome1);
+        console.log('Total de Votos válidos mais Brancos',votobranco + candidato1);
+    }else if (candidato2 > candidato1 && candidato2 > candidato3){
+        console.log('O ganhador é o ',nome2);
+        console.log('Total de Votos válidos mais Brancos',votobranco + candidato2);
+    }else if (candidato3 > candidato1 && candidato3 > candidato2){
+        console.log('O ganhador é o ',nome3);
+        console.log('Total de Votos válidos mais Brancos',votobranco + candidato3);
+    }else {
+        console.log ('Empate');
+    }
+    
 }
-
+    
