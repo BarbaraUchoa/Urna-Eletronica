@@ -50,8 +50,8 @@ function urnaEletronica() {
         
     } while (opcao !== 0);
     
-    let totalDeVotos = candidato1 + candidato2 + candidato3 + votobranco + votonulo;
     
+    let totalDeVotos = candidato1 + candidato2 + candidato3 + votobranco + votonulo;
     contador = contador - 1;
     console.log('Contagem:', contador);
     console.log('Este é o total de votos para o candidato ', nome1,':', candidato1);
@@ -59,12 +59,11 @@ function urnaEletronica() {
     console.log('Este é o total de votos para o candidato ', nome3,':',candidato3);
     console.log('Este é o total de votos para o Voto Branco', votobranco);
     console.log('Este é o total de votos para o Voto Nulo', votonulo);
-    console.log('Este é o Total da votação',totalDeVotos *100 )
+    console.log('Este é o Total da votação',totalDeVotos )
     
     if (candidato1 > candidato2 && candidato1 > candidato3) {
         console.log('O ganhador é  ',nome1);
         console.log('Total de Votos válidos mais Brancos',votobranco + candidato1);
-        console.log('Porcentagem de votos'(candidato1 + votobranco)/totaldevotos *100)
     }else if (candidato2 > candidato1 && candidato2 > candidato3){
         console.log('O ganhador é  ',nome2);
         console.log('Total de Votos válidos mais Brancos',votobranco + candidato2);
