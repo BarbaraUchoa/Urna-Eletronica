@@ -17,10 +17,22 @@ function urnaEletronica() {
     let candidato3 = 0;
     let votobranco = 0;
     let votonulo = 0;
+    let encerrarVotação = "N";
+    let senha = prompt ('Digite uma senha de 6 dígitos');
+    
+    
     
     do {
         
-        opcao = parseInt(prompt('Digite a opção'));
+        
+        opcao = parseInt(prompt('Digite a opção \n'+
+        '(1) ' + nome1 + '\n'+
+        '(2) '+ nome2 + '\n'+
+        '(3) '+ nome3 + '\n'+
+        '(4) Branco \n' +
+        '(5) Nulo \n'+
+        '(0) Encerrar'));
+        
         
         console.log('Repetição');
         contador++;
@@ -46,9 +58,22 @@ function urnaEletronica() {
         } else if (opcao == 5) {
             console.log('Opção de voto é Nulo');
             votonulo++;
+        }else if (opcao == 0) {
+            encerrarVotação = (prompt('Digite S para encerrar e N para continuar'))
+            if(encerrarVotação == 'N'){
+                
+            }
+
+            let comparador= prompt('Repita a Senha inserida anteriormente')
+        }else if (comparador ==senha) {
+            console.log('OK')
         }
+
+        }while (encerrarVotação !== "s");
         
-    } while (opcao !== 0);
+        
+    
+    
     
     
     let totalDeVotos = candidato1 + candidato2 + candidato3 + votobranco + votonulo;
@@ -60,10 +85,12 @@ function urnaEletronica() {
     console.log('Este é o total de votos para o Voto Branco', votobranco);
     console.log('Este é o total de votos para o Voto Nulo', votonulo);
     console.log('Este é o Total da votação',totalDeVotos )
+
     
     if (candidato1 > candidato2 && candidato1 > candidato3) {
         console.log('O ganhador é  ',nome1);
         console.log('Total de Votos válidos mais Brancos',votobranco + candidato1);
+        console.log('Porcentagem do ganhador', (candidato1 + votobranco) / totalDeVotos * 100)
     }else if (candidato2 > candidato1 && candidato2 > candidato3){
         console.log('O ganhador é  ',nome2);
         console.log('Total de Votos válidos mais Brancos',votobranco + candidato2);
@@ -72,7 +99,36 @@ function urnaEletronica() {
         console.log('Total de Votos válidos mais Brancos',votobranco + candidato3);
     }else {
         console.log ('Empate');
+
+
     }
+
+    let porcentagemCandidato1= candidato1 / totalDeVotos * 100
+    console.log( nome1, 'votos', porcentagemCandidato1, '%')
+
+    let porcentagemCandidato2= candidato2 / totalDeVotos * 100
+    console.log( nome2, 'votos', porcentagemCandidato2 ,'%')
+
+    let porcentagemCandidato3= candidato3 / totalDeVotos * 100
+    console.log( nome3, 'votos', porcentagemCandidato3, '%')
+
+    let porcentagemVotosBrancos= votobranco / totalDeVotos * 100
+    console.log( 'Votos em Branco ', porcentagemVotosBrancos,'%')
+
+    let porcentagemVotosNulos= votonulo / totalDeVotos * 100
+    console.log('Votos Nulo', porcentagemVotosNulos, '%')
     
+    
+  
+  
+    
+
+    
+        
+            
+
+   
+
+
 }
     
