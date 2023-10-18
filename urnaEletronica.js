@@ -18,7 +18,7 @@ function urnaEletronica() {
     let votobranco = 0;
     let votonulo = 0;
     let encerrarVotação = "N";
-    let senha = prompt ('Digite uma senha de 6 dígitos');
+    let senha = prompt ('Digite uma senha de 6 dígitos (123456)');
     
     
     
@@ -64,9 +64,9 @@ function urnaEletronica() {
                 
             }
 
-            let comparador= prompt('Repita a Senha inserida anteriormente')
-        }else if (comparador ==senha) {
-            console.log('OK')
+            let comparador= prompt('Repita a Senha informada anteriormente')
+        }else if (senha  == '0') {
+            console.log('Votação encerrada com Sucesso!')
         }
 
         }while (encerrarVotação !== "s");
