@@ -50,7 +50,7 @@ function urnaEletronica() {
         
     } while (opcao !== 0);
     
-    
+    ''
     let totalDeVotos = candidato1 + candidato2 + candidato3 + votobranco + votonulo;
     contador = contador - 1;
     console.log('Contagem:', contador);
