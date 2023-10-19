@@ -7,10 +7,19 @@ function urnaEletronica() {
     let nome1;
     let nome2;
     let nome3;
-    nome1 = prompt('Digite o nome do candidato');
-    nome2= prompt('Digite o nome do candidato');
-    nome3 = prompt('Digite o nome do candidato');
-        
+
+    do {
+
+        nome1 = prompt('Digite o nome do candidato 1');
+        nome2= prompt('Digite o nome do candidato 2');
+        nome3 = prompt('Digite o nome do candidato 3');
+          console.log('Nomes dos Candidatos');
+          console.log('candidato 1:' + nome1);
+          console.log('candidato 2:' + nome2);
+          console.log('candidato 3:' + nome3);
+           
+
+    } while (!confirm('Se os nmes dos candidatos esão corretos, clique OK para continuar ou Cancelar para voltar e digitar novamente'));
 
     let candidato1 = 0;
     let candidato2 = 0;
@@ -18,7 +27,7 @@ function urnaEletronica() {
     let votobranco = 0;
     let votonulo = 0;
     let encerrarVotação = "N";
-    let senha = prompt ('Digite uma senha de 6 dígitos (123456)');
+    let senhaMesario = prompt ('Digite uma senha de 6 dígitos (123456)');
     
     
     
@@ -30,64 +39,78 @@ function urnaEletronica() {
         '(2) '+ nome2 + '\n'+
         '(3) '+ nome3 + '\n'+
         '(4) Branco \n' +
-        '(5) Nulo \n'+
         '(0) Encerrar'));
         
-        
+        console.clear();
         console.log('Repetição');
         contador++;
         
-        
-        if (opcao == 1) {
+         console.log(' Configuração da urna');
+        if (opcao === 1) {
             
             console.log('Opção  de voto é o candidato',nome1);
             candidato1++;
             
-        } else if (opcao == 2) {
+        } else if (opcao === 2) {
             console.log('Opção de voto é o candidato', nome2);
             candidato2++;
             
-        } else if (opcao == 3) {
+        } else if (opcao === 3) {
             console.log('Opção de voto é o candidato',nome3);
             candidato3++;
             
         } else if (opcao == 4) {
             console.log('Opção  do voto é  em Branco');
             votobranco++;
-            
-        } else if (opcao == 5) {
-            console.log('Opção de voto é Nulo');
-            votonulo++;
-        }else if (opcao == 0) {
-            encerrarVotação = (prompt('Digite S para encerrar e N para continuar'))
+
+        } else if (opcao == 0 ){
+            return;
+
+        } else if (opcao == senhaMesario) {
+            encerrarVotação = (prompt(' Deseja REALMENTE ENCERRAS ESSA VOTAÇÃO? Digite S para encerrar e N para continuar'))
             if(encerrarVotação == 'N'){
                 
             }
+            
+            if (encerrarVotação === 'S' && encerrarVotação !== 'N'){
+                alert('opção inválida')
+            }
+
+
 
             let comparador= prompt('Repita a Senha informada anteriormente')
-        }else if (senha  == '0') {
+        }else if (senhaMesario  == '0') {
             console.log('Votação encerrada com Sucesso!')
+            
+           
+        }else {
+            opcaoVtonULO = confirm('aTENÇÃO: SEU VOTO SERA ANULADO. DESEJA PROCESSEGUIR?');
+            if (opcaoVtonULO){
+                votonulo++
+            }
         }
 
-        }while (encerrarVotação !== "s");
+    }while (encerrarVotação !== "s");
         
+    //se ouver votaçao
         
     
     
     
-    ''
-    let totalDeVotos = candidato1 + candidato2 + candidato3 + votobranco + votonulo;
-    contador = contador - 1;
-    console.log('Contagem:', contador);
-    console.log('Este é o total de votos para o candidato ', nome1,':', candidato1);
-    console.log('Este é o total de votos para o candidato ', nome2,':',candidato2);
-    console.log('Este é o total de votos para o candidato ', nome3,':',candidato3);
-    console.log('Este é o total de votos para o Voto Branco', votobranco);
-    console.log('Este é o total de votos para o Voto Nulo', votonulo);
-    console.log('Este é o Total da votação',totalDeVotos )
 
+         let totalDeVotos = candidato1 + candidato2 + candidato3 + votobranco + votonulo;
+         console.clear ();
+         console.log('Contagem:', contador);
+         console.log('Este é o total de votos para o candidato ', nome1,':', candidato1 );
+         console.log('Este é o total de votos para o candidato ', nome2,':',candidato2);
+         console.log('Este é o total de votos para o candidato ', nome3,':',candidato3);
+         console.log('Este é o total de votos para o Voto Branco', votobranco);
+         console.log('Este é o total de votos para o Voto Nulo', votonulo);
+         console.log('Este é o Total da votação',totalDeVotos )
+         
+         contador = contador - 1;
     
-    if (candidato1 > candidato2 && candidato1 > candidato3) {
+     if (candidato1 > candidato2 && candidato1 > candidato3) {
         console.log('O ganhador é  ',nome1);
         console.log('Total de Votos válidos mais Brancos',votobranco + candidato1);
         console.log('Porcentagem do ganhador', (candidato1 + votobranco) / totalDeVotos * 100)
@@ -98,28 +121,29 @@ function urnaEletronica() {
         console.log('O ganhador é  ',nome3);
         console.log('Total de Votos válidos mais Brancos',votobranco + candidato3);
     }else {
-        console.log ('Empate');
+        console.log (' não ouve ganhador nesta urna (Empate entre 2 ou mais candidaos)');
+        empate = true
 
 
     }
 
     let porcentagemCandidato1= candidato1 / totalDeVotos * 100
-    console.log( nome1, 'votos', porcentagemCandidato1, '%')
+    console.log( nome1, 'votos', porcentagemCandidato1.toFixed(2), '%')
 
     let porcentagemCandidato2= candidato2 / totalDeVotos * 100
-    console.log( nome2, 'votos', porcentagemCandidato2 ,'%')
+    console.log( nome2, 'votos', porcentagemCandidato2.toFixed(2) ,'%')
 
     let porcentagemCandidato3= candidato3 / totalDeVotos * 100
-    console.log( nome3, 'votos', porcentagemCandidato3, '%')
+    console.log( nome3, 'votos', porcentagemCandidato3.toFixed(2), '%')
 
     let porcentagemVotosBrancos= votobranco / totalDeVotos * 100
-    console.log( 'Votos em Branco ', porcentagemVotosBrancos,'%')
+    console.log( 'Votos em Branco ', porcentagemVotosBrancos.toFixed(2),'%')
 
     let porcentagemVotosNulos= votonulo / totalDeVotos * 100
-    console.log('Votos Nulo', porcentagemVotosNulos, '%')
+    console.log('Votos Nulo', porcentagemVotosNulos.toFixed(2), '%')
     
-    
-  
+    console.log (' Encerrada a Votação');
+   
   
     
 
