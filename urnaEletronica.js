@@ -9,26 +9,14 @@ function urnaEletronica() {
     // declaração das variáveis
     let opcao;
     let contador = 0;
+    let candidatos = [
     
-    let nome1;
-    let nome2;
-    let nome3;
+    ['Enéas', 'Pancadinha', 'Maria do Bairro', 'Mazaropi','Bico da Gaita','Branco'] ,
+    [56,45,22,13,50,01]
     
+    ]
 
-    do {
-
-        nome1 = prompt('Digite o nome do candidato 1');
-        nome2= prompt('Digite o nome do candidato 2');
-        nome3 = prompt('Digite o nome do candidato 3');
-          console.log('Nomes dos Candidatos');
-          console.log('candidato 1:' + nome1);
-          console.log('candidato 2:' + nome2);
-          console.log('candidato 3:' + nome3);
-           
-
-    } while (!confirm('Se os nomes dos candidatos estão corretos, clique OK para continuar ou Cancelar para voltar e digitar novamente \n' + '(1) ' + nome1 + '\n'+
-        '(2) '+ nome2 + '\n'+
-        '(3) '+ nome3 + '\n' ))
+    console.log(candidatos)
 
 
     let candidato1 = 0;
@@ -46,12 +34,7 @@ function urnaEletronica() {
     do {
         
         
-        opcao = parseInt(prompt('Digite a opção \n'+
-        '(1) ' + nome1 + '\n'+
-        '(2) '+ nome2 + '\n'+
-        '(3) '+ nome3 + '\n'+
-        '(4) Branco \n' +
-        '(0) Encerrar'));
+        
         
         console.clear();
         console.log('Repetição');
@@ -59,7 +42,7 @@ function urnaEletronica() {
         
          console.log(' Configuração da urna');
         if (opcao === 1) {
-            if (confirm('Confirma seu voto no candidato?: ' +  nome1))
+            if (confirm('Confirma seu voto no candidato?: ' + candidato[0]))
             {
                 console.log('Opção  de voto é o candidato',nome1);
                 candidato1++;
