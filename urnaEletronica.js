@@ -1,5 +1,11 @@
+function data (){
+    const data = new Date().toLocaleString();
+    return data
+    
+}
 function urnaEletronica() {
 
+    
     // declaração das variáveis
     let opcao;
     let contador = 0;
@@ -7,6 +13,7 @@ function urnaEletronica() {
     let nome1;
     let nome2;
     let nome3;
+    
 
     do {
 
@@ -19,7 +26,10 @@ function urnaEletronica() {
           console.log('candidato 3:' + nome3);
            
 
-    } while (!confirm('Se os nmes dos candidatos esão corretos, clique OK para continuar ou Cancelar para voltar e digitar novamente'));
+    } while (!confirm('Se os nomes dos candidatos estão corretos, clique OK para continuar ou Cancelar para voltar e digitar novamente \n' + '(1) ' + nome1 + '\n'+
+        '(2) '+ nome2 + '\n'+
+        '(3) '+ nome3 + '\n' ))
+
 
     let candidato1 = 0;
     let candidato2 = 0;
@@ -28,6 +38,8 @@ function urnaEletronica() {
     let votonulo = 0;
     let encerrarVotação = "N";
     let senhaMesario = prompt ('Digite uma senha de 6 dígitos (123456)');
+    let datainicio = data();
+    
     
     
     
@@ -47,21 +59,41 @@ function urnaEletronica() {
         
          console.log(' Configuração da urna');
         if (opcao === 1) {
-            
-            console.log('Opção  de voto é o candidato',nome1);
-            candidato1++;
+            if (confirm('Confirma seu voto no candidato?: ' +  nome1))
+            {
+                console.log('Opção  de voto é o candidato',nome1);
+                candidato1++;
+
+            }
             
         } else if (opcao === 2) {
-            console.log('Opção de voto é o candidato', nome2);
-            candidato2++;
+            if (confirm('Confirma seu voto no candidato?: ' + nome2))
+            
+                {
+                console.log('Opção de voto é o candidato', nome2);
+
+                candidato2++;
+            }
             
         } else if (opcao === 3) {
             console.log('Opção de voto é o candidato',nome3);
-            candidato3++;
+            
+            if ( confirm('Confirma seu voto no candidato?: ' + nome3))
+           
+             {
+                console.log('Opção de voto é o candidato',nome3);
+            
+                candidato3 ++;
+            }
             
         } else if (opcao == 4) {
-            console.log('Opção  do voto é  em Branco');
-            votobranco++;
+            if (confirm('Confirma seu no em Branco? '))
+            {
+                
+                console.log('Opção  do voto é  em Branco');
+
+                votobranco++;
+            }
 
         } else if (opcao == 0 ){
             return;
@@ -78,13 +110,11 @@ function urnaEletronica() {
 
 
 
-            let comparador= prompt('Repita a Senha informada anteriormente')
-        }else if (senhaMesario  == '0') {
             console.log('Votação encerrada com Sucesso!')
             
            
         }else {
-            opcaoVtonULO = confirm('aTENÇÃO: SEU VOTO SERA ANULADO. DESEJA PROCESSEGUIR?');
+            opcaoVtonULO = confirm('ATENÇÃO: SEU VOTO SERA ANULADO. DESEJA PROCESSEGUIR?');
             if (opcaoVtonULO){
                 votonulo++
             }
@@ -97,16 +127,15 @@ function urnaEletronica() {
     
     
     
-
-         let totalDeVotos = candidato1 + candidato2 + candidato3 + votobranco + votonulo;
-         console.clear ();
-         console.log('Contagem:', contador);
-         console.log('Este é o total de votos para o candidato ', nome1,':', candidato1 );
-         console.log('Este é o total de votos para o candidato ', nome2,':',candidato2);
-         console.log('Este é o total de votos para o candidato ', nome3,':',candidato3);
-         console.log('Este é o total de votos para o Voto Branco', votobranco);
-         console.log('Este é o total de votos para o Voto Nulo', votonulo);
-         console.log('Este é o Total da votação',totalDeVotos )
+    let totalDeVotos = candidato1 + candidato2 + candidato3 + votobranco + votonulo;
+    console.clear ();
+        console.log('Data e horário do inicío  da votação' + datainicio);
+        console.log('Este é o total de votos para o candidato ', nome1,':', candidato1 );
+        console.log('Este é o total de votos para o candidato ', nome2,':',candidato2);
+        console.log('Este é o total de votos para o candidato ', nome3,':',candidato3);
+        console.log('Este é o total de votos para o Voto Branco', votobranco);
+        console.log('Este é o total de votos para o Voto Nulo', votonulo);
+        console.log('Este é o Total da votação',totalDeVotos )
          
          contador = contador - 1;
     
@@ -141,7 +170,7 @@ function urnaEletronica() {
 
     let porcentagemVotosNulos= votonulo / totalDeVotos * 100
     console.log('Votos Nulo', porcentagemVotosNulos.toFixed(2), '%')
-    
+    console.log(' Data e horário do término da votação ' + data());
     console.log (' Encerrada a Votação');
    
   
