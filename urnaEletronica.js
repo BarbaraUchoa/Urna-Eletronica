@@ -1,3 +1,22 @@
+function candidatos (){
+    let candidatos = [
+    
+        [56,'Enéas'],
+        [45,'Pancadinha'],
+        [22,'Maria do Bairro'],
+        [13,'Mazzaropi'],
+        [50,'Bico da Gaita'],
+        ['00','Branco']
+        ]
+        
+    for (voto = 0; voto < candidatos.length; voto++){
+        
+   
+        document.getElementById('nomeDosCandidatos').innerHTML += `<p>${candidatos[voto][0]} - ${candidatos[voto][1]} </p>` 
+    }
+}
+ candidatos()
+
 function data (){
     const data = new Date().toLocaleString();
     return data
@@ -9,15 +28,8 @@ function urnaEletronica() {
     // declaração das variáveis
     let opcao;
     let contador = 0;
-    let candidatos = [
     
-    ['Enéas', 'Pancadinha', 'Maria do Bairro', 'Mazaropi','Bico da Gaita','Branco'] ,
-    [56,45,22,13,50,01]
-    
-    ]
-
-    console.log(candidatos)
-
+  
 
     let candidato1 = 0;
     let candidato2 = 0;
