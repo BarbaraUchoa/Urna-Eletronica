@@ -6,7 +6,7 @@ function verificarIntegridadeUrna() {
 
     fetch ('urnaEletronica.js')
     .then(conteudo => {conteudo.text()})
-    .then(conteudo => CryptoJs.SHA256(conteudo).toString())
+    .then(conteudo => CryptoJS.SHA256(conteudo).toString())
     .then(hashUrnaAtual => {
         fetch('./hashVerificado')
         .then(conteudo =>conteudo.text())
@@ -43,10 +43,10 @@ function urnaEletronica() {
         ['00','Branco']
         ]
         
-    for (voto = 0; voto < candidatos.length; voto++){
+    for (i = 0; i < candidatos.length; i++){
         
    
-        document.getElementById('nomeDosCandidatos').innerHTML += `<p>${candidatos[voto][0]} - ${candidatos[voto][1]} </p>` 
+        document.getElementById('nomeDosCandidatos').innerHTML += `<p>${candidatos[i][0]} - ${candidatos[i][1]} </p>` 
     
     }
     
@@ -56,15 +56,14 @@ function urnaEletronica() {
     let senhaMesario = prompt ('Digite uma senha de 6 dígitos (123456)');
 
 
-
-    
- 
- 
  // declaração das variáveis
 
  let contador = 0;
- 
-
+let nome1
+let nome2
+let nome3
+ let Opção
+ let candidato1 = 0;
  let candidato2 = 0;
  let candidato3 = 0;
  let votobranco = 0;
@@ -79,17 +78,17 @@ function urnaEletronica() {
  do {
      
      console.log(' Configuração da urna');
-     
+     opcao = parseInt(prompt("inicio da votação"));
      
   
      console.log('Repetição');
      contador++;
      
      if (opcao === 1) {
-         if (confirm('Confirma seu voto no candidato?: ' + candidato[voto][0] - candidatos[voto][1]))
+         if (confirm('Confirma seu voto no candidato?:  ' + candidatos[0][0] +   ' - ' + candidatos[0][1] ))
          {
-             console.log('Opção  de voto é o candidato',candidatos);
-             candidatos++;
+             console.log('Opção  de voto é o candidato',candidatos[0][1]);
+             candidato1++;
              
             }
             
@@ -131,13 +130,13 @@ function urnaEletronica() {
                 
             }
             
-            if (encerrarVotação === 'S' && encerrarVotação !== 'N'){
-                alert('opção inválida')
+            if (encerrarVotação === 'S'){
+                console.log('Votação encerrada com Sucesso!')
             }
             
             
             
-            console.log('Votação encerrada com Sucesso!')
+            
             
             
         }else {
