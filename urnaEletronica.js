@@ -1,36 +1,50 @@
+
+
 function data() {
     const data = new Date().toLocaleString();
     return data
 }
 function verificarIntegridadeUrna() {
-
+    
     fetch('urnaEletronica.js')
-        .then(conteudo => { conteudo.text() })
-        .then(conteudo => CryptoJS.SHA256(conteudo).toString())
-        .then(hashUrnaAtual => {
-            fetch('./hashVerificado')
-                .then(conteudo => conteudo.text())
-                .then(hashVerificado => {
-
-
-                    if (hashUrnaAtual === hashVerificado) {
-                        console.log('Hash verificado,urna integra')
-
-                    } else {
-
-                        console.log('Hashes Diferentes, URNA ADULTERADA!');
-                        console.log(`Hash esperado: ${hashVerificado}`);
-                        console.log(`Hash da Urna: ${hashUrnaAtual}`);
-                    }
-
-                }
-                )
+    .then(conteudo => { conteudo.text() })
+    .then(conteudo => CryptoJS.SHA256(conteudo).toString())
+    .then(hashUrnaAtual => {
+        fetch('./hashVerificado')
+        .then(conteudo => conteudo.text())
+        .then(hashVerificado => {
+            
+            
+            if (hashUrnaAtual === hashVerificado) {
+                console.log('Hash verificado,urna integra')
+                
+            } else {
+                
+                console.log('Hashes Diferentes, URNA ADULTERADA!');
+                console.log(`Hash esperado: ${hashVerificado}`);
+                console.log(`Hash da Urna: ${hashUrnaAtual}`);
+            }
+            
         }
         )
+    }
+    )
+}
+async function urnaJson() {
+    fetch('./urna.json')
+    .then(conteudo => conteudo.json())
+    .then()
+
+}
+ urnaJson()
+
+async function audioConfirmacao() {
+    const audio = new Audio('./Confirmacao.mp3');
+    await audio.play();
+
 }
 
-
-function urnaEletronica() {
+async function urnaEletronica() {
 
     document.getElementById('nomeDosCandidatos').innerHTML = ''
 
@@ -93,22 +107,23 @@ function urnaEletronica() {
             if (confirm('Confirma seu voto no candidato?:  ' + nome1 + ' - ' + candidatos[0][0])) {
                 console.log('Opção  de voto é o candidato', nome1);
                 candidato1++;
+                await audioConfirmacao();
                 
             }
             
         } else if (opcao ===  candidatos[1][0]) {
             if (confirm('Confirma seu voto no candidato?: ' + nome2 + candidatos[1][0])) {
                 console.log('Opção de voto é o candidato', nome2);
-                
                 candidato2++;
+                await audioConfirmacao();
             }
 
         } else if (opcao === candidatos[2][0]) {
         
             if (confirm('Confirma seu voto no candidato?: ' + nome3 + candidatos[2][0])) {
                 console.log('Opção de voto é o candidato', nome3);
-                
                 candidato3++;
+                await audioConfirmacao();
             }
             
             
@@ -116,8 +131,8 @@ function urnaEletronica() {
             
             if (confirm('Confirma seu voto no candidato?: ' + nome4 + candidatos[3][0])) {
                 console.log('Opção de voto é o candidato', nome4);
-                
                 candidato4++;
+                await audioConfirmacao();
                 
                 
             }
@@ -125,16 +140,16 @@ function urnaEletronica() {
         
             if (confirm('Confirma seu voto no candidato?: ' + nome5 + candidatos[4][0])) {
                 console.log('Opção de voto é o candidato', nome5);
-                
                 candidato5++;
+                await audioConfirmacao();
             }
             
         } else if (opcao == candidatos[5][0]) {
             if (confirm('Confirma seu no em Branco? ' + candidatos[5][0])) {
                 
                 console.log('Opção  do voto é  em Branco');
-
                 branco++;
+                await audioConfirmacao();
                 
             }
             
