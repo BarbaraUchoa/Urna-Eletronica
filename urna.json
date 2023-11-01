@@ -1,0 +1,42 @@
+{
+    "candidatos":
+    [
+ {
+    "codigo": "56",
+    "nome" : "Enéas"
+ },
+ {
+    "codigo" : "45",
+    "nome": "Pancadinha"
+ },
+ {
+    "codigo": "22",
+    "nome" : " Maria do Bairro"
+ },
+ {
+    "codigo" : "13",
+    "nome" : "Mazzaropi"
+
+ },
+ {
+    "codigo" : "50",
+    "nome" : "Bico da Gaita"
+
+ },
+ {
+    "codigo" : "0",
+    "nome" : " Voto em Branco"
+
+ }
+
+],
+
+
+"configuracao":
+    [
+        {
+            "senha": "123456"
+        }
+    ]
+
+}
