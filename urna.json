@@ -1,4 +1,6 @@
-[
+{
+    "candidatos":
+    [
  {
     "codigo": "56",
     "nome" : "Enéas"
@@ -27,4 +29,14 @@
 
  }
 
-]
+],
+
+
+"configuracao":
+    [
+        {
+            "senha": "123456"
+        }
+    ]
+
+}

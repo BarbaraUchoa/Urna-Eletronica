@@ -33,9 +33,15 @@ function verificarIntegridadeUrna() {
 async function urnaJson() {
     fetch('./urna.json')
     .then(conteudo => conteudo.json())
-    .then()
+    .then(dados =>  {
+        for(i = 0; i < dados.candidatos.length;i++){
+            //console.log(dados.candidatos[i].nome)
+            document.getElementById('nomesDosCandidatos').innerHTML += `<p> ${dados.candidatos[i].codigo} - ${dados.candidatos[i].nome}</p>`
+        }
+    } 
 
-}
+    )
+    }
  urnaJson()
 
 async function audioConfirmacao() {
