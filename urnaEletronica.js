@@ -18,7 +18,7 @@ function urnaEletronica() {
     let votobranco = 0;
     let votonulo = 0;
     let encerrarVotação = "N";
-    let senha = prompt ('Digite uma senha de 6 dígitos (123456)');
+    let senhaDeFinitiva = parseInt(prompt ('Digite uma senha de 6 dígitos informada ao lado (123456)'));
     
     
     
@@ -64,18 +64,13 @@ function urnaEletronica() {
                 
             }
 
-            let comparador= prompt('Repita a Senha informada anteriormente')
-        }else if (senha  == '0') {
+            let comparador = prompt('Repita a Senha informada anteriormente')
+        }else if (senhaDeFinitiva == comparador + 's' ) {
             console.log('Votação encerrada com Sucesso!')
         }
 
-        }while (encerrarVotação !== "s");
+    }while (encerrarVotação !== "s");
         
-        
-    
-    
-    
-    ''
     let totalDeVotos = candidato1 + candidato2 + candidato3 + votobranco + votonulo;
     contador = contador - 1;
     console.log('Contagem:', contador);
@@ -84,7 +79,7 @@ function urnaEletronica() {
     console.log('Este é o total de votos para o candidato ', nome3,':',candidato3);
     console.log('Este é o total de votos para o Voto Branco', votobranco);
     console.log('Este é o total de votos para o Voto Nulo', votonulo);
-    console.log('Este é o Total da votação',totalDeVotos )
+    console.log('Este é o Total da votação',totalDeVotos)
 
     
     if (candidato1 > candidato2 && candidato1 > candidato3) {
@@ -120,15 +115,6 @@ function urnaEletronica() {
     
     
   
-  
-    
-
-    
         
-            
-
-   
-
-
 }
     
